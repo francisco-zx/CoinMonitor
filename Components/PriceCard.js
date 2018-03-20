@@ -12,14 +12,14 @@ export default class App extends React.Component {
               </Text>
               <Text style={styles.priceCardBuySell}>
                 Compra: <Text style={styles.priceCardPrice}>
-                  ${this.props.Buy ? this.props.Buy.toString().replace(/\B(?=(\d{3})+\b)/g, ".") : 0}
+                  ${this.props.Buy ? this.props.Buy.toString().replace(/\B(?=(\d{3})+\b)/g, ",") : 0}
                   <Text style={styles.PriceRef}> {this.props.currency ==='ars' ? 'ARS' : 'USD' }</Text>
                 </Text>
               </Text>
               <Text style={styles.priceCardBuySell}>
                 Venta: <Text
                   style={styles.priceCardPrice}>
-                   ${this.props.sell ? this.props.sell.toString().replace(/\B(?=(\d{3})+\b)/g, ".") : 0}
+                   ${this.props.sell ? this.props.sell.toString().replace(/\B(?=(\d{3})+\b)/g, ",") : 0}
                    <Text style={styles.PriceRef}> {this.props.currency ==='ars' ? 'ARS' : 'USD' }</Text>
                 </Text>
               </Text>
@@ -33,11 +33,11 @@ const styles = StyleSheet.create({
   priceCard: {
     flex:1,
     flexDirection: 'row',
-    backgroundColor: '#fafafa',
+    backgroundColor: 'rgba(0, 0, 0 ,0.3)',
     alignItems: 'center',
     padding: 10,
     height: 100,
-    margin: 10,
+    margin: 7,
     shadowColor: '#0a0a0a',
     shadowOffset: {
       width: 2,
@@ -59,14 +59,17 @@ const styles = StyleSheet.create({
   },
   priceCardName: {
     fontWeight: 'bold',
+    color: 'white',
     fontSize: 18,
     marginBottom: 1
   },
   priceCardBuySell: {
-    fontSize: 16
+    fontSize: 16,
+    color:'white',
   },
   priceCardPrice: {
-    fontWeight: '100'
+    fontWeight: '100',
+    color: 'white'
   },
   PriceRef: {
     fontSize: 11,

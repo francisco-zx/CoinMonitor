@@ -15,8 +15,9 @@ export default class calcIcon extends React.Component {
 
   render() {
     return (
-
+      <View>
         <Image source={require('./calc_icon.png')} />
+      </View>        
     );
   }
 }

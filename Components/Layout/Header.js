@@ -33,11 +33,11 @@ export default class Header extends React.Component {
           <TouchableHighlight onPress={this.props.changeCurrency} underlayColor='white'>
               { this.props.currency === 'ars' ?
                 this.state.bitstamp  && this.state.dolar?
-                <Text style={styles.headerPrice}>${Math.round(this.state.bitstamp *  this.state.dolar).toString().replace(/\B(?=(\d{3})+\b)/g, ".")}<Text style={styles.headerPriceRef}> ARS</Text></Text>
+                <Text style={styles.headerPrice}>${Math.round(this.state.bitstamp *  this.state.dolar).toString().replace(/\B(?=(\d{3})+\b)/g, ",")}<Text style={styles.headerPriceRef}> ARS</Text></Text>
                 : <Text></Text>
                 :
                 this.state.bitstamp  && this.state.dolar?
-                <Text style={styles.headerPrice}>${this.state.bitstamp.toString().replace(/\B(?=(\d{3})+\b)/g, ".")}<Text style={styles.headerPriceRef}> USD</Text></Text>
+                <Text style={styles.headerPrice}>${this.state.bitstamp.toString().replace(/\B(?=(\d{3})+\b)/g, ",")}<Text style={styles.headerPriceRef}> USD</Text></Text>
                 : <Text>nada por aqui </Text>
               }
           </TouchableHighlight>
@@ -48,19 +48,16 @@ export default class Header extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff'
-  },
   header: {
     alignItems: 'flex-start',
+    backgroundColor: '#0a0a0a',
     flexDirection: 'row',
-    height: 120,
+    height: 140,
     marginBottom: 10,
-    shadowColor: '#0a0a0a',
+    shadowColor: '#111',
     shadowOffset: {
       width: 0,
-      height: 2
+      height: 1
     },
     shadowOpacity: 0.1,
     shadowRadius: 2
@@ -68,23 +65,24 @@ const styles = StyleSheet.create({
   headerTitle: {
     flex:1,
     alignItems: 'flex-end',
-    color: 'black',
+    color: 'white',
     fontWeight: 'bold',
-    paddingTop: 70,
+    paddingTop: 90,
     paddingLeft: 8,
-    fontSize: 32,
+    fontSize: 34,
     width: 200
   },
   headerPrice: {
     flex:1,
-    backgroundColor: 'white',
+    color: 'white',
+    backgroundColor: '#0a0a0a',
     justifyContent: 'flex-end',
     fontWeight: '700',
     fontSize:30,
     textAlign: 'right',
     paddingRight: 8,
     width: 200,
-    paddingTop: 74,
+    paddingTop: 94,
   },
   headerPriceRef: {
     fontSize: 11,

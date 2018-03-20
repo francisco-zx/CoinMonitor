@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, ScrollView, Image} from 'react-native';
+import { StyleSheet, Text, View, ScrollView, Image, StatusBar} from 'react-native';
 import { NativeRouter, Route, Link, Fade, Switch } from 'react-router-native';
 
 //Components
@@ -10,7 +10,7 @@ import PriceList from './Components/PriceList';
 import Calculator from './Components/Calculator/Calculator';
 import BlockChainData from './Components/BlockChain/BlockChainData';
 import Chart from './Components/Chart/Chart';
-
+//ICONS
 export default class App extends React.Component {
 
   constructor(props){
@@ -52,6 +52,10 @@ export default class App extends React.Component {
     return (
       <NativeRouter>
         <View style={styles.container}>
+          <StatusBar
+             backgroundColor="#0a0a0a"
+             barStyle="light-content"
+           />
           <Header name={this.state.route} changeCurrency={this.changeCurrency} currency={this.state.currency}/>
             <Route
               path='/'
@@ -99,7 +103,7 @@ export default class App extends React.Component {
             <Link
               to="/calculator"
               style={styles.navigationItem}
-              onPress={() => {this.changeRoute("Calculadora")}}>
+              onPress={() => {this.changeRoute("Cálculo")}}>
               <Text>Calculadora</Text>
             </Link>
             <Link
@@ -124,14 +128,15 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff'
+    backgroundColor: '#111'
   },
   header: {
     alignItems: 'flex-start',
+    backgroundColor: 'black',
     flexDirection: 'row',
     height: 110,
     marginBottom: 10,
-    shadowColor: '#0a0a0a',
+    shadowColor: '#fff',
     shadowOffset: {
       width: 0,
       height: 2
@@ -141,8 +146,9 @@ const styles = StyleSheet.create({
   },
   headerTitle: {
     flex:2,
+    backgroundColor: 'black',
     alignItems: 'flex-end',
-    color: 'black',
+    color: 'white',
     fontWeight: 'bold',
     paddingTop: 70,
     paddingLeft: 8,
@@ -152,6 +158,7 @@ const styles = StyleSheet.create({
   headerPrice: {
     flex:1,
     justifyContent: 'flex-end',
+    backgroundColor:'black',
     fontSize:18,
     width: 200,
     paddingTop: 83,
@@ -161,17 +168,18 @@ const styles = StyleSheet.create({
     fontWeight: '100'
   },
   navigation: {
+    backgroundColor: '#0a0a0a',
     alignItems: 'flex-start',
     flexDirection: 'row',
     alignItems: 'center',
-    height: 60,
-    shadowColor: '#0a0a0a',
+    height: 70,
+    shadowColor: '#111',
     shadowOffset: {
       width: 0,
-      height: -2
+      height: -1
     },
     shadowOpacity: 0.1,
-    shadowRadius: 2,
+    shadowRadius: 1,
   },
   navigationItem: {
     flex:1,

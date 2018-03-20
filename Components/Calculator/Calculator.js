@@ -37,7 +37,7 @@ export default class Calculator extends React.Component {
   }
   handleChangeBTC = (text) => {
     this.setState({
-      btc: text
+      btc: text.replace(',', '.')
     }, () => {
       this.calculate();
     });
@@ -58,32 +58,36 @@ export default class Calculator extends React.Component {
             <View style={styles.row}>
               <TextInput
                 keyboardType='numeric'
-                returnKeyType={'next'}
+                returnKeyType='done'
+                keyboardAppearance='dark'
                 style={styles.inputBTC}
                 placeholder="1"
+                placeholderTextColor='#5e5e5e'
                 onChangeText={(text) => this.handleChangeBTC(text)}
               />
-              <Text>BTC</Text>
+              <Text style={styles.ref}>BTC</Text>
             </View>
             <View style={styles.row}>
               <Text style={styles.percentItem}>+</Text>
               <TextInput
                 keyboardType='numeric'
                 returnKeyType='done'
+                keyboardAppearance='dark'
                 style={styles.inputPercent}
                 placeholder="0"
+                placeholderTextColor='#5e5e5e'
                 onChangeText={(text) => this.handleChangePercent(text)}
               />
               <Text style={styles.percentItem}>%</Text>
             </View>
             <View style={styles.row}>
-              <Text style={styles.ref}>=</Text>
+              <Text>=</Text>
               <Text style={styles.total}>
                 {
                   this.props.currency === 'ars' ?
-                    <Text>$ {Math.round(this.state.total  * this.props.dolar).toString().replace(/\B(?=(\d{3})+\b)/g, ".")} </Text>
+                    <Text>$ {Math.round(this.state.total  * this.props.dolar).toString().replace(/\B(?=(\d{3})+\b)/g, ",")} </Text>
                   :
-                    <Text>$ {Math.round(this.state.total).toString().replace(/\B(?=(\d{3})+\b)/g, ".")}</Text>
+                    <Text>$ {Math.round(this.state.total).toString().replace(/\B(?=(\d{3})+\b)/g, ",")}</Text>
                 }
               </Text>
             </View>
@@ -102,14 +106,17 @@ const styles = StyleSheet.create({
     margin:20
   },
   inputPercent: {
-    fontSize:42,
+    fontSize:62,
     fontWeight: 'bold',
     paddingLeft: 20,
     paddingRight: 20,
-    width: 120
+    width: 120,
+    color:'white'
   },
   inputBTC: {
-    fontSize:42,
+    flex:4,
+    fontSize:62,
+    color: 'white',
     fontWeight: 'bold',
     paddingLeft: 20,
     paddingRight: 20,
@@ -117,16 +124,20 @@ const styles = StyleSheet.create({
   },
   ref: {
     fontSize:18,
+    flex: 1,
     fontWeight:'100',
+    color: '#fff'
   },
   percent: {
     flexDirection: 'row',
+    color:'white',
     justifyContent: 'center',
     alignItems: 'center',
   },
   percentItem: {
     fontSize: 18,
-    fontWeight: '100'
+    fontWeight: '100',
+    color: 'white'
   },
   row: {
     flex: 1,
@@ -136,10 +147,12 @@ const styles = StyleSheet.create({
   equals: {
     fontSize:11,
     fontWeight:'100',
+    color:'white'
   },
   total: {
-    fontSize: 42,
+    fontSize: 55,
     flex:1,
+    color:'white',
     fontWeight: 'bold',
     paddingLeft: 20
 

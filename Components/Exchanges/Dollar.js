@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
   priceCard: {
     flex:1,
     flexDirection: 'row',
-    backgroundColor: '#fafafa',
+    backgroundColor: 'rgba(256,256,256,0.6)',
     alignItems: 'center',
     padding: 10,
     height: 100,
